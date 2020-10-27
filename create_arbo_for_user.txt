@@ -37,6 +37,7 @@ mkdir -p /home/$user/images/dessins
 
 #on declare le user comme proprietaire de toute son arbo home
 chown -vR $user /home/$user/
-
+echo "--------------------mission complete-------------------"
+echo "----------------------respect + -----------------------"
 #sortie du script
 exit 0
