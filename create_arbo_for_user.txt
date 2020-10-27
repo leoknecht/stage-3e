@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#on test qu'un seul argument a ete passe au script
+#si on a pas exactement 1 argument, on affiche un message d'erreur et on quitte le script
+if [ "$#" -ne 1 ]; then
+  echo "Wrong number of argument"
+  echo ""
+  echo "SYNOPSIS: ./create_arbo_for_user.txt [USERNAME]"
+  #sortie du script
+  exit 0
+fi
+
+#on met l'argument dans la variable user
+user=$1
+
+#on chercher l'entree correspondante au user dans la database passwd
+entry=$(getent passwd $user)
+
+#si l entree est vide c est que le user n existe pas
+if [[ -z "$entry" ]]; then
+ echo "fake user"
+ echo "please give real user"
+ #sortie du script
+ exit 0
+fi
+
+#on affiche un message d'information
+echo "l'utilisateur est : $user"
+
+#on cree l'arborescence voulue pour le user
+mkdir -p /home/$user/cours/maths
+mkdir -p /home/$user/cours/info
+mkdir -p /home/$user/music/mp3
+mkdir -p /home/$user/music/clips
+mkdir -p /home/$user/images/photos
+mkdir -p /home/$user/images/dessins
+
+#on declare le user comme proprietaire de toute son arbo home
+chown -vR $user /home/$user/
+
+#sortie du script
+exit 0
