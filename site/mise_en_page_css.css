@@ -1,0 +1,27 @@
+body {
+  background-color: white;
+}
+
+p {
+  color: lightgreen;
+  font-size: 40px;
+  text-align: center;
+}
+
+.bouton a {
+  display: block;
+  width: 150px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  background: url(boutonnoir.png) no-repeat;
+  color: white;
+  text-decoration: none;
+}
+
+.bouton a:hover {
+  background: url(boutonnoir2.png) no-repeat;
+}
+.centerdiv div {
+  text-align: center;
+}
